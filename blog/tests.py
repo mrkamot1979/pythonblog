@@ -12,3 +12,14 @@ class BlogTests(TestCase):
             email = 'test@email.com',
             password ='secret'
         )
+
+        self.post = Post.objects.create (
+            title = 'A good title',
+            body = 'nice body content',
+            author = user.self
+        )
+
+    def test_string_representation(self):
+        post = Post(title = 'A sample title')
+
+        self.assertEqual(str(post), post.title)
